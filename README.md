@@ -116,14 +116,14 @@ chezmoi cd
 git init
 git add .
 git commit -m "备份配置文件"
-git remote add origin https://github.com/你的用户名/你的仓库名.git
+git remote add origin https://github.com/Stays1993/dofile.git
 git push -u origin main
 ```
 
 3. 在新系统上恢复配置：
 
 ```bash
-chezmoi init https://github.com/你的用户名/你的仓库名.git
+chezmoi init https://github.com/Stays1993/dofile.git
 chezmoi apply
 ```
 
