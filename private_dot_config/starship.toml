@@ -1,0 +1,97 @@
+# ~/.config/starship.toml
+
+# 全局配置
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$conda\
+$python\
+$nodejs\
+$rust\
+$cmd_duration\
+$line_break\
+$character
+"""
+
+# 用户名模块
+[username]
+style_user = "green bold"
+style_root = "red bold"
+format = "[$user]($style)@"
+disabled = false
+show_always = true
+
+# 主机名模块
+[hostname]
+ssh_only = false
+format = "[$hostname]($style) 在 "
+trim_at = ".companyname.com"
+style = "blue bold"
+
+# 目录模块
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+format = "[$path]($style) "
+style = "cyan bold"
+
+# Git 分支模块
+[git_branch]
+symbol = "分支: "
+format = "于 [$symbol$branch]($style) "
+style = "purple bold"
+
+# Git 状态模块
+[git_status]
+format = "([$all_status$ahead_behind]($style) )"
+style = "yellow bold"
+conflicted = "冲突: $count"
+ahead = "超前: $count"
+behind = "落后: $count"
+diverged = "分叉: 超前 $ahead_count, 落后 $behind_count"
+untracked = "未跟踪: $count"
+stashed = "暂存: $count"
+modified = "修改: $count"
+staged = "已暂存: $count"
+renamed = "重命名: $count"
+deleted = "删除: $count"
+
+# Conda 环境模块
+[conda]
+format = "通过 [conda: $environment]($style) "
+style = "green bold"
+ignore_base = true
+
+# Python 模块
+[python]
+format = "通过 [python: $version]($style) "
+style = "yellow bold"
+
+# Node.js 模块
+[nodejs]
+format = "通过 [node: $version]($style) "
+style = "green bold"
+
+# Rust 模块
+[rust]
+format = "通过 [rust: $version]($style) "
+style = "red bold"
+
+# 命令执行时间模块
+[cmd_duration]
+format = "耗时 [$duration]($style) "
+style = "yellow bold"
+min_time = 1000  # 只显示超过 1 秒的命令
+
+# 换行符
+[line_break]
+disabled = false
+
+# 提示符字符
+[character]
+success_symbol = "[>](purple)"
+error_symbol = "[>](red)"
+vicmd_symbol = "[<](green)"

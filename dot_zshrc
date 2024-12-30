@@ -1,0 +1,92 @@
+# 加载 zplug
+source ~/.zplug/init.zsh
+
+# 插件列表
+zplug "zsh-users/zsh-autosuggestions" # 自动建议
+zplug "zsh-users/zsh-syntax-highlighting" # 语法高亮
+zplug "plugins/git", from:oh-my-zsh # Git 插件
+zplug "plugins/docker", from:oh-my-zsh # Docker 插件
+zplug "plugins/python", from:oh-my-zsh # Python 工具集成
+zplug "plugins/node", from:oh-my-zsh # Node.js 工具集成
+zplug "plugins/npm", from:oh-my-zsh # NPM 补全
+zplug "plugins/colored-man-pages", from:oh-my-zsh # 彩色 man 页面
+zplug "plugins/thefuck", from:oh-my-zsh # 自动纠正命令
+zplug "plugins/history", from:oh-my-zsh # 历史命令增强
+
+# 安装未安装的插件
+if ! zplug check; then
+    zplug install
+fi
+
+# 加载插件到 shell
+zplug load
+
+# 彩色输出
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+    alias la='ls -A --color=auto'
+    alias ll='ls -lh --color=auto'
+fi
+
+# 自动补全
+autoload -Uz compinit
+compinit
+zstyle ':completion:*' menu yes=long select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 忽略大小写
+zstyle ':completion:*' group-name '' # 分组显示补全结果
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}" # 使用 LS_COLORS 颜色
+
+# 历史记录
+HISTFILE=~/.histfile
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
+setopt hist_ignore_all_dups # 忽略重复命令
+setopt hist_save_no_dups # 保存时去重
+setopt inc_append_history # 即时保存历史
+setopt share_history # 共享历史记录
+
+# 别名
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias du='du -h'
+alias df='df -h'
+alias mkdir='mkdir -p'
+alias ping="ping -c 4 "
+alias cls='clear'
+alias cp="cp -i"
+alias mv="mv -i"
+
+# 命令提示符
+# autoload -U colors && colors
+# PROMPT="%(?::%B[%?] %b)%B%{$fg[green]%}%#%{$reset_color%}%b %B%{$fg[blue]%}%.%{$reset_color%}%b "
+# RPROMPT="%{$fg[red]%}%T%{$reset_color%}" # 右侧显示时间
+
+# 使用 Starship
+eval "$(starship init zsh)"
+
+# 环境变量
+export EDITOR='vim'
+export PAGER='less'
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/home/project/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/home/project/miniconda3/etc/profile.d/conda.sh" ]; then
+#         . "/home/project/miniconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/home/project/miniconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# <<< conda initialize <<<
