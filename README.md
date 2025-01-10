@@ -128,3 +128,14 @@ chezmoi apply
 ```
 
 通过以上步骤，你可以轻松使用 Chezmoi 备份和管理你的配置文件。
+
+## 10. 安装[`zplug`](https://github.com/zplug/zplug?tab=readme-ov-file)
+```bash
+curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+```
+
+## 11. 安装[`starship`](https://github.com/starship/starship)
+```bash
+curl -sS https://starship.rs/install.sh | sh
+```
+
