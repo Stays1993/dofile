@@ -90,3 +90,7 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+# Pycharm
+export PyCharm_HOME=/opt/apps/com.jetbrains.www.pycharm/files/pycharm-professional
+export PATH=${PyCharm_HOME}/bin:$PATH
