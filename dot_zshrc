@@ -10,7 +10,7 @@ zplug "plugins/python", from:oh-my-zsh # Python 工具集成
 zplug "plugins/node", from:oh-my-zsh # Node.js 工具集成
 zplug "plugins/npm", from:oh-my-zsh # NPM 补全
 zplug "plugins/colored-man-pages", from:oh-my-zsh # 彩色 man 页面
-zplug "plugins/thefuck", from:oh-my-zsh # 自动纠正命令
+# zplug "plugins/thefuck", from:oh-my-zsh # 自动纠正命令
 zplug "plugins/history", from:oh-my-zsh # 历史命令增强
 
 # 安装未安装的插件
