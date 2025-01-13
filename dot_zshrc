@@ -50,18 +50,6 @@ setopt hist_save_no_dups # 保存时去重
 setopt inc_append_history # 即时保存历史
 setopt share_history # 共享历史记录
 
-# 别名
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias du='du -h'
-alias df='df -h'
-alias mkdir='mkdir -p'
-alias ping="ping -c 4 "
-alias cls='clear'
-alias cp="cp -i"
-alias mv="mv -i"
-
 # 命令提示符
 # autoload -U colors && colors
 # PROMPT="%(?::%B[%?] %b)%B%{$fg[green]%}%#%{$reset_color%}%b %B%{$fg[blue]%}%.%{$reset_color%}%b "
@@ -74,6 +62,19 @@ eval "$(starship init zsh)"
 export EDITOR='vim'
 export PAGER='less'
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# 别名
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias du='du -h'
+alias df='df -h'
+alias mkdir='mkdir -p'
+alias ping="ping -c 4 "
+alias cls='clear'
+alias cp="cp -i"
+alias mv="mv -i"
+alias zshrc='vim $HOME/.zshrc'
 
 
 # conda 环境变量
@@ -95,5 +96,5 @@ export PATH="$HOME/miniconda3/bin:$PATH"
 # <<< conda initialize <<<
 
 # PyCharm环境变量
-export PyCharm_HOME=/opt/apps/com.jetbrains.www.pycharm/files/pycharm-professional
+export PyCharm_HOME=/snap/pycharm-professional/443
 export PATH=${PyCharm_HOME}/bin:$PATH
